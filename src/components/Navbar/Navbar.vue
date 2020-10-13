@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <h1>Where in the world?</h1>
-    <button @click="isDarkMode = !isDarkMode"><i :class="icon" class="fa-moon"></i> {{labelMode}}</button>
+    <button @click="changeThemeMode"><i :class="icon" class="fa-moon"></i> {{labelMode}}</button>
   </div>
 </template>
 
@@ -10,22 +10,28 @@ export default {
   name: 'Navbar',
   data(){
     return {
-      isDarkMode: true,
+      darkMode: false,
       icon: "far",
+    }
+  },
+  methods: {
+    changeThemeMode(){
+      this.darkMode = !this.darkMode;
+      this.$emit('themeModeChanged',this.darkMode);
     }
   },
   computed:{
     labelMode(){
-      if(this.isDarkMode){
-        this.icon = 'fas';
-        return 'Dark Mode';
-      }else{
+      if(this.darkMode){
         this.icon = 'far';
         return 'Light Mode';
+      }else{
+        this.icon = 'fas';
+        return 'Dark Mode';
       }
     }
-  }
+  },
 }
 </script>
 
-<style lang="scss" src="./Navbar.scss"></style>
+<style scoped></style>
