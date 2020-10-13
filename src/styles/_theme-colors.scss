@@ -1,5 +1,15 @@
 :root{
-  --app-bg-color:;
+  --app-bg-color:hsl(0, 0%, 98%);
+  --app-text-color: hsl(200, 15%, 8%);
+  --app-input-color: hsl(0, 0%, 52%);
+  --app-element-color: hsl(0, 0%, 100%);
+  --app-shadow-color: #efefef;
 }
-$darkBlue: hls(209,23%,22%);
-$veryDarkBlue: hls(207,26%,17%);
+
+[theme="dark"]{
+  --app-bg-color:hsl(207, 26%, 17%);
+  --app-text-color: hsl(0, 0%,100%);
+  --app-input-color: hsl(0, 0%, 52%);
+  --app-element-color: hsl(209, 23%, 22%);
+  --app-shadow-color: #1e2b34;
+}

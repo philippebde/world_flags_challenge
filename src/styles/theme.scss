@@ -1,26 +1,127 @@
+@import '/_reset.scss';
 @import '/_theme-colors.scss';
 /*
 **
 ** 00 Variables
 ** 01 Common
+** 02 Header
+** 03 Content
 **
 */
 
 /**
 *** 00 Variables
 **/
-/* Font */
+$fontFamily: 'Nunito Sans', sans-serif;
 $mainFontSize: 14px;
-
+$titleFontSize: 16px;
+$sectionSize: 1440px;
+$sectionPadding: 30px 80px;
 /**
 *** 01 Common
 **/
 body{
-  font-size: "14px";
-  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-family: $fontFamily;
+}
+button,
+input,
+select{
+  outline:none;
+  font-weight: 600;
+}
+h1{
+  font-size: $titleFontSize;
+  font-weight: 800;
+  color: var(--app-text-color);
+}
+#app{
+  width: 100%;
+  margin:0 auto;
+}
+.app-bg{
+  background-color: var(--app-bg-color);
 }
 
-#app{
-  width:1440px;
+/**
+*** 02 Header
+**/
+.header-wrapper{
+  width:100%;
+  background-color: var(--app-element-color);
+  box-shadow:0 1px 10px var(--app-shadow-color);
+}
+.header{
+  width: $sectionSize;
   margin:0 auto;
+  padding:$sectionPadding;
+}
+.navbar{
+  width:100%;
+  display: flex;
+  justify-content: space-between; 
+}
+.navbar button{
+  border:none;
+  background:none;
+  outline:none;
+  cursor:pointer;
+  color: var(--app-text-color);
+}
+
+/**
+*** 03 Content
+**/
+.content-wrapper{
+  width:100%;
+}
+.content{
+  width:$sectionSize;
+  margin:0 auto;
+  padding:$sectionPadding;
+}
+.filters{
+  display:flex;
+  justify-content: space-between;
+}
+.search{
+  width: 33.33%;
+  position: relative;
+}
+.search i{
+  position: absolute;
+  font-size: 18px;
+  color: var(--app-text-color);
+  top:33.93%;
+  left:6.667%;
+}
+.search input[type="search"]{
+  background: var(--app-element-color);
+  color: var(--app-text-color);
+  border:none;
+  border-radius:5px;
+  box-shadow: 0px 0px 5px var(--app-shadow-color);
+  padding:10px 70px;
+  height: 56px;
+  width:100%;
+}
+.search input[type="search"]::placeholder{
+  color: var(--app-text-color);
+}
+.region{
+  width:13.889%;
+}
+.region select[name="region"]{
+  background: var(--app-element-color);
+  color: var(--app-text-color);
+  border:none;
+  border-radius:5px;
+  box-shadow: 0px 0px 5px var(--app-shadow-color);
+  padding:0px 17.5% 0px 12%;
+  height: 56px;
+  width:100%;
+}
+.region select[name="region"] option {
+  font-family: $fontFamily;
+  font-weight: 600;
 }
