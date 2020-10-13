@@ -1,0 +1,26 @@
+@import '/_theme-colors.scss';
+/*
+**
+** 00 Variables
+** 01 Common
+**
+*/
+
+/**
+*** 00 Variables
+**/
+/* Font */
+$mainFontSize: 14px;
+
+/**
+*** 01 Common
+**/
+body{
+  font-size: "14px";
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+#app{
+  width:1440px;
+  margin:0 auto;
+}
