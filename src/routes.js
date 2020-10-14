@@ -1,9 +1,11 @@
 import Home from './pages/Home/Home'
 import Country from './pages/Country/Country'
+import NotFound from './pages/NotFound/NotFound'
 
 export const routes = [
   {
-    path:"*"
+    path:"*",
+    component: NotFound,
   },
   {
     path: '/',
