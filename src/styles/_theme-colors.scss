@@ -3,7 +3,7 @@
   --app-text-color: hsl(200, 15%, 8%);
   --app-input-color: hsl(0, 0%, 52%);
   --app-element-color: hsl(0, 0%, 100%);
-  --app-shadow-color: #efefef;
+  --app-shadow-color:  hsl(0, 0%, 52%);
 }
 
 [theme="dark"]{
@@ -11,5 +11,5 @@
   --app-text-color: hsl(0, 0%,100%);
   --app-input-color: hsl(0, 0%, 52%);
   --app-element-color: hsl(209, 23%, 22%);
-  --app-shadow-color: #1e2b34;
+  --app-shadow-color:  hsl(0, 0%, 52%);
 }

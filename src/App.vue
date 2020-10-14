@@ -19,7 +19,8 @@ export default {
   name: 'app',
   data(){
     return {
-      darkMode: false
+      darkMode: false,
+      countries: {} 
     }
   },
   components:{

@@ -12,116 +12,244 @@
 /**
 *** 00 Variables
 **/
-$fontFamily: 'Nunito Sans', sans-serif;
+$fontFamily: 'Nunito Sans',
+sans-serif;
 $mainFontSize: 14px;
 $titleFontSize: 16px;
-$sectionSize: 1440px;
 $sectionPadding: 30px 80px;
+
 /**
 *** 01 Common
 **/
-body{
+body {
   font-size: 14px;
   font-family: $fontFamily;
 }
+a{
+  text-decoration: none;
+}
 button,
 input,
-select{
-  outline:none;
+select {
+  outline: none;
   font-weight: 600;
 }
-h1{
-  font-size: $titleFontSize;
+button{
+  cursor:pointer;
+}
+h1 {
+  font-size: 20px;
   font-weight: 800;
   color: var(--app-text-color);
 }
-#app{
+
+#app {
   width: 100%;
-  margin:0 auto;
+  margin: 0 auto;
 }
-.app-bg{
+
+.app-bg {
   background-color: var(--app-bg-color);
 }
 
 /**
 *** 02 Header
 **/
-.header-wrapper{
-  width:100%;
+.header-wrapper {
+  width: 100%;
   background-color: var(--app-element-color);
-  box-shadow:0 1px 10px var(--app-shadow-color);
+  box-shadow: 0 1px 10px var(--app-shadow-color);
 }
-.header{
-  width: $sectionSize;
-  margin:0 auto;
-  padding:$sectionPadding;
+
+.header {
+  margin: 0 auto;
+  padding: $sectionPadding;
 }
-.navbar{
-  width:100%;
+
+.navbar {
+  width: 100%;
   display: flex;
-  justify-content: space-between; 
-}
-.navbar button{
-  border:none;
-  background:none;
-  outline:none;
-  cursor:pointer;
-  color: var(--app-text-color);
+  justify-content: space-between;
+
+  button {
+    border: none;
+    background: none;
+    color: var(--app-text-color);
+  }
 }
 
 /**
 *** 03 Content
 **/
-.content-wrapper{
-  width:100%;
+.content-wrapper {
+  width: 100%;
 }
-.content{
-  width:$sectionSize;
-  margin:0 auto;
-  padding:$sectionPadding;
+
+.content {
+  margin: 0 auto;
+  padding: $sectionPadding;
 }
-.filters{
-  display:flex;
+
+.filters {
+  display: flex;
   justify-content: space-between;
+  margin-bottom: 48px;
 }
-.search{
+.btn {
+  background-color: var(--app--input-color);
+  border:none;
+  line-height:40px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--app-shadow-color);
+  color: var(--app-text-color);
+  font-weight:300;
+  padding: 0 32px;
+
+  i{
+    margin-right:10px;
+  }
+}
+.search {
   width: 33.33%;
   position: relative;
+
+  i {
+    position: absolute;
+    font-size: 18px;
+    color: var(--app-text-color);
+    top: 33.93%;
+    left: 6.667%;
+  }
+
+  input[type="search"] {
+    background: var(--app-element-color);
+    color: var(--app-text-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--app-shadow-color);
+    padding: 10px 70px;
+    height: 56px;
+    width: 100%;
+  }
+
+  input[type="search"]::placeholder {
+    color: var(--app-text-color);
+  }
 }
-.search i{
-  position: absolute;
-  font-size: 18px;
-  color: var(--app-text-color);
-  top:33.93%;
-  left:6.667%;
+
+.region {
+  width: 13.889%;
+
+  select[name="region"] {
+    background: var(--app-element-color);
+    color: var(--app-text-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--app-shadow-color);
+    padding: 0px 17.5% 0px 12%;
+    height: 56px;
+    width: 100%;
+  }
+
+  select[name="region"] option {
+    font-family: $fontFamily;
+    font-weight: 600;
+  }
 }
-.search input[type="search"]{
-  background: var(--app-element-color);
-  color: var(--app-text-color);
-  border:none;
-  border-radius:5px;
-  box-shadow: 0px 0px 5px var(--app-shadow-color);
-  padding:10px 70px;
-  height: 56px;
-  width:100%;
+
+.blocks {
+  a.block {
+    display: inline-block;
+    width: 21%;
+    border-radius: 5px;
+    background-color: var(--app-element-color);
+    box-shadow: var(--app-shadow-color);
+    min-height: 336px;
+    overflow: hidden;
+    margin: 0 76px 75px 0;
+    color: var(--app-text-color);
+  }
+  .flag {
+    display: block;
+    width: 100%;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .info {
+    overflow: hidden;
+    padding: 30px 24px;
+    color: var(--app-text-color);
+
+    h2 {
+      display: block;
+      width: 100%;
+      font-size: $titleFontSize;
+      font-weight: 800;
+      min-height: 30px;
+    }
+
+    span {
+      display: block;
+      line-height: 35px;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+  a.block:nth-child(4n) {
+    margin-right: 0;
+  }
+  &.country > div{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .left, .right{
+      width:45%;
+    }
+    .left{
+      .flag{
+        min-height:400px;
+      }
+    }
+    .right{
+      h2{
+        font-size:32px;
+        margin-bottom:38px;
+      }
+      .info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      div:nth-child(4){
+        flex-basis:100%;
+      }
+      .btn{
+        margin:0 5px;
+      }
+    }
+  }
 }
-.search input[type="search"]::placeholder{
-  color: var(--app-text-color);
+
+@media only screen and (min-width:376px) {
+  $sectionSize: 1440px;
+
+  .header,
+  .content {
+    width: $sectionSize;
+  }
 }
-.region{
-  width:13.889%;
-}
-.region select[name="region"]{
-  background: var(--app-element-color);
-  color: var(--app-text-color);
-  border:none;
-  border-radius:5px;
-  box-shadow: 0px 0px 5px var(--app-shadow-color);
-  padding:0px 17.5% 0px 12%;
-  height: 56px;
-  width:100%;
-}
-.region select[name="region"] option {
-  font-family: $fontFamily;
-  font-weight: 600;
+
+@media only screen and (max-width: 375px) {
+  $sectionSize: 375px;
+
+  .header,
+  .content {
+    width: $sectionSize;
+  }
 }

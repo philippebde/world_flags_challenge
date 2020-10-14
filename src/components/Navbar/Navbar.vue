@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <h1>Where in the world?</h1>
+    <router-link to="/"><h1>Where in the world?</h1></router-link>
     <button @click="changeThemeMode"><i :class="icon" class="fa-moon"></i> {{labelMode}}</button>
   </div>
 </template>
