@@ -5,7 +5,7 @@
 				<input
 					type="search"
 					name="search"
-					@keyup.enter="searchCountry(search)"
+					@keyup="searchCountry(search)"
 					v-model="search"
 					aria-label="Search for a country..."
 					placeholder="Search for a country..."
@@ -27,7 +27,7 @@
 		</div>
 		<div class="blocks">
 			<template v-for="country in countries">
-				<router-link :to="{name:'Country', params: {name: country.name}}" class="block" :key="country.numericCode">
+				<router-link :to="{name:'Country', params: {code: country.alpha3Code}}" class="block" :key="country.numericCode">
           <country-teaser-view
             :name="country.name"
             :flag="country.flag"

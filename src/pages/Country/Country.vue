@@ -36,13 +36,18 @@ export default {
 		};
 	},
 	created() {
-		this.$http
-			.get("https://restcountries.eu/rest/v2/name/" + this.$route.params.name.toLowerCase(), {
-				params: { fullText: true },
-			})
+		this.getCountryPerCode(this.$route.params.code);
+  },
+  updated(){
+    this.getCountryPerCode(this.$route.params.code);
+  },
+  methods:{
+    getCountryPerCode(code){
+      this.$http
+			.get("https://restcountries.eu/rest/v2/alpha/" + code)
 			.then(
 				(response) => {
-					this.country = response.body[0];
+					this.country = response.body;
 				},
 				(response) => {
 					if (response.status === 404) {
@@ -50,7 +55,8 @@ export default {
 					}
 				}
 			);
-	}
+    }
+  }
 };
 </script>
 
