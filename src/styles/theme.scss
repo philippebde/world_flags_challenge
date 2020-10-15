@@ -46,23 +46,32 @@ h1 {
   font-weight: 800;
   color: var(--app-text-color);
 }
-
 #app {
   width: 100%;
   margin: 0 auto;
 }
-
 .app-bg {
   background-color: var(--app-bg-color);
 }
-
 .inline{
   display: inline-block!important; 
 }
 .align-top{
   vertical-align: top;
 }
-
+.flex{
+  display:flex;
+  flex-wrap: wrap;
+}
+.space-around{
+  justify-content: space-around;
+}
+.space-between{
+  justify-content: space-between;
+}
+.w-100{
+ width:100%;
+}
 /**
 *** 02 Header
 **/
@@ -192,6 +201,12 @@ h1 {
     padding: 30px 24px;
     color: var(--app-text-color);
 
+    .block{
+      flex-basis: 50%;
+    }
+    .flex{
+      margin-bottom:38px;
+    }
     h2 {
       display: block;
       width: 100%;
@@ -227,13 +242,7 @@ h1 {
       }
     }
     .right{
-      div{
-        margin-bottom:38px;
-      }
-      div:nth-child(4){
-        flex-basis:100%;
-        margin-bottom: 0;
-      }
+      
       h2{
         font-size:32px;
         margin-bottom:38px;
@@ -243,6 +252,9 @@ h1 {
         flex-wrap: wrap;
         justify-content: space-between;
 
+        div:not(:last-child) {
+          margin-bottom:38px;
+        }
         span{
           line-height: 35px;
         }
@@ -308,8 +320,10 @@ h1 {
       }
       .right{
         width: 100%;
-
-        div > div:nth-child(4) span{
+        .block{
+          flex-basis:100%;
+        }
+        div > div:nth-child(3) span{
           font-size:18px;
         }
         .info{

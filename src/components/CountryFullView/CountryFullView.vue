@@ -6,19 +6,21 @@
     <div class="right">
       <div class="info">
         <h2>{{ name }}</h2>
-        <div>
-          <span><strong>Native Name:</strong> {{ nativeName }}</span>
-          <span><strong>Population:</strong> {{ populationRender }}</span>
-          <span><strong>Region:</strong> {{ region }}</span>
-          <span><strong>Sub Region:</strong> {{ subRegion }}</span>
-          <span><strong>Capital:</strong> {{ capital }}</span>
+        <div class="flex w-100">
+          <div class="block">
+            <span><strong>Native Name:</strong> {{ nativeName }}</span>
+            <span><strong>Population:</strong> {{ populationRender }}</span>
+            <span><strong>Region:</strong> {{ region }}</span>
+            <span><strong>Sub Region:</strong> {{ subRegion }}</span>
+            <span><strong>Capital:</strong> {{ capital }}</span>
+          </div>
+          <div class="block">
+              <span><strong>Top Level Domain:</strong> {{ topLevelDomain.toString() }}</span>
+              <span><strong>currencies:</strong> {{ currenciesRender }}</span>
+              <span><strong>Languages:</strong> {{ languagesRender }}</span>
+          </div>
         </div>
-        <div>
-            <span><strong>Top Level Domain:</strong> {{ topLevelDomain.toString() }}</span>
-            <span><strong>currencies:</strong> {{ currenciesRender }}</span>
-            <span><strong>Languages:</strong> {{ languagesRender }}</span>
-        </div>
-        <div class="inline" v-if="borderCountries.length > 0">
+        <div class="w-100" v-if="borderCountries.length > 0">
             <span class="inline align-top"><strong>Border Countries:</strong></span>
             <div class="inline">
               <template v-for="border in borderCountries">
