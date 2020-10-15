@@ -1,5 +1,5 @@
-@import '/_reset.scss';
-@import '/_theme-colors.scss';
+@import './_reset.scss';
+@import './_theme-colors.scss';
 /*
 **
 ** 00 Variables
@@ -12,11 +12,9 @@
 /**
 *** 00 Variables
 **/
-$fontFamily: 'Nunito Sans',
-sans-serif;
+$fontFamily: 'Nunito Sans', sans-serif;
 $mainFontSize: 14px;
 $titleFontSize: 16px;
-$sectionPadding: 30px 80px;
 
 /**
 *** 01 Common
@@ -27,6 +25,12 @@ body {
 }
 a{
   text-decoration: none;
+  &.btn{
+    width:95px;
+    padding:0;
+    text-align: center;
+    border-radius: 2px;
+  }
 }
 button,
 input,
@@ -52,6 +56,13 @@ h1 {
   background-color: var(--app-bg-color);
 }
 
+.inline{
+  display: inline-block!important; 
+}
+.align-top{
+  vertical-align: top;
+}
+
 /**
 *** 02 Header
 **/
@@ -63,7 +74,6 @@ h1 {
 
 .header {
   margin: 0 auto;
-  padding: $sectionPadding;
 }
 
 .navbar {
@@ -87,7 +97,6 @@ h1 {
 
 .content {
   margin: 0 auto;
-  padding: $sectionPadding;
 }
 
 .filters {
@@ -128,7 +137,7 @@ h1 {
     border-radius: 5px;
     box-shadow: 0px 0px 5px var(--app-shadow-color);
     padding: 10px 70px;
-    height: 56px;
+    height: 45px;
     width: 100%;
   }
 
@@ -147,7 +156,7 @@ h1 {
     border-radius: 5px;
     box-shadow: 0px 0px 5px var(--app-shadow-color);
     padding: 0px 17.5% 0px 12%;
-    height: 56px;
+    height: 45px;
     width: 100%;
   }
 
@@ -160,7 +169,7 @@ h1 {
 .blocks {
   a.block {
     display: inline-block;
-    width: 21%;
+    width: 20.54%;
     border-radius: 5px;
     background-color: var(--app-element-color);
     box-shadow: var(--app-shadow-color);
@@ -193,7 +202,7 @@ h1 {
 
     span {
       display: block;
-      line-height: 35px;
+      line-height: 25px;
 
       strong {
         font-weight: 600;
@@ -207,8 +216,9 @@ h1 {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    .left, .right{
+    
+    .left, 
+    .right{
       width:45%;
     }
     .left{
@@ -217,6 +227,13 @@ h1 {
       }
     }
     .right{
+      div{
+        margin-bottom:38px;
+      }
+      div:nth-child(4){
+        flex-basis:100%;
+        margin-bottom: 0;
+      }
       h2{
         font-size:32px;
         margin-bottom:38px;
@@ -225,31 +242,80 @@ h1 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-      }
-      div:nth-child(4){
-        flex-basis:100%;
+
+        span{
+          line-height: 35px;
+        }
       }
       .btn{
-        margin:0 5px;
+        margin:5px;
+        display:inline-block;
+        line-height: 25px;
       }
     }
   }
 }
 
 @media only screen and (min-width:376px) {
-  $sectionSize: 1440px;
+  $sectionSize: 1280px;
+  $sectionPadding: 30px 80px;
 
   .header,
   .content {
     width: $sectionSize;
+    padding: $sectionPadding;
   }
 }
 
 @media only screen and (max-width: 375px) {
-  $sectionSize: 375px;
+  $sectionSize: 315px;
+  $sectionPadding: 30px;
 
+  h1{
+    font-size:16px;
+  }
   .header,
   .content {
     width: $sectionSize;
+    padding: $sectionPadding;
+  }
+  .filters{
+    display:block;
+  
+    .search{
+      width:100%;
+      margin-bottom: 38px;
+    }
+    .region{
+      width:50%;
+    }
+  }
+  .blocks{
+    a.block{
+      width:100%;
+      margin:0 0 60px 0;
+    }
+  }
+  .blocks{
+    &.country > div{
+      font-size:16px;
+      .left{
+        width: 100%;
+
+        .flag{
+          min-height:200px;
+        }
+      }
+      .right{
+        width: 100%;
+
+        div > div:nth-child(4) span{
+          font-size:18px;
+        }
+        .info{
+          padding: 30px 0;
+        }
+      }
+    }
   }
 }

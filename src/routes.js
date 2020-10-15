@@ -13,7 +13,7 @@ export const routes = [
     component: Home
   },
   {
-      path: '/country/:name',
+      path: '/country/:code',
       name: 'Country',
       component: Country
   }

@@ -18,12 +18,13 @@
             <span><strong>currencies:</strong> {{ currenciesRender }}</span>
             <span><strong>Languages:</strong> {{ languagesRender }}</span>
         </div>
-        <div>
-            <span><strong>Border Countries:</strong> 
+        <div class="inline" v-if="borderCountries.length > 0">
+            <span class="inline align-top"><strong>Border Countries:</strong></span>
+            <div class="inline">
               <template v-for="border in borderCountries">
-                <router-link :to="{name:'Country', params: {name: border}}" class="btn" :key="border">{{border}}</router-link>
+                <router-link :to="{name:'Country', params: {code: border}}" class="btn" :key="border">{{border}}</router-link>
               </template>
-            </span>
+            </div>
         </div>
       </div>
     </div>
