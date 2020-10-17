@@ -6,7 +6,8 @@
 			</router-link>
 		</div>
 		<div class="blocks country">
-			<country-full-view
+			<country-details
+				layout="full"
 				:name="country.name"
 				:native-name="country.nativeName"
 				:flag="country.flag"
@@ -18,17 +19,17 @@
 				:currencies="country.currencies"
 				:languages="country.languages"
 				:border-countries="country.borders"
-			></country-full-view>
+			></country-details>
 		</div>
 	</div>
 </template>
 
 <script>
-import CountryFullView from "../../components/CountryFullView/CountryFullView";
+import CountryDetails from "../../components/CountryDetails/CountryDetails.vue";
 export default {
 	name: "Country",
 	components: {
-		"country-full-view": CountryFullView,
+		"country-details": CountryDetails,
 	},
 	data() {
 		return {
@@ -37,17 +38,14 @@ export default {
 	},
 	created() {
 		this.getCountryPerCode(this.$route.params.code);
-  },
-  updated(){
-    this.getCountryPerCode(this.$route.params.code);
-  },
-  methods:{
-    getCountryPerCode(code){
-      this.$http
-			.get("https://restcountries.eu/rest/v2/alpha/" + code)
-			.then(
+	},
+	methods: {
+		getCountryPerCode(code) {
+			this.$http.get("https://restcountries.eu/rest/v2/alpha/" + code).then(
 				(response) => {
-					this.country = response.body;
+					if (response.status === 200) {
+						this.country = response.body;
+					}
 				},
 				(response) => {
 					if (response.status === 404) {
@@ -55,8 +53,8 @@ export default {
 					}
 				}
 			);
-    }
-  }
+		},
+	},
 };
 </script>
 

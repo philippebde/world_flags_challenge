@@ -4,8 +4,9 @@ import NotFound from './pages/NotFound/NotFound'
 
 export const routes = [
   {
-    path:"*",
-    component: NotFound,
+    path: "*",
+    name: 'NotFound',
+    component: NotFound
   },
   {
     path: '/',
