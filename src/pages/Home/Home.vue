@@ -13,45 +13,61 @@
 				<i class="fas fa-search"></i>
 			</div>
 			<div class="region">
-				<select
-					name="region"
-					@change="searchPerRegion(region)"
-					v-model="region"
-				>
-					<option value="" selected>Filter by Region</option>
-					<option v-for="(item, index) in regions" :key="index" :value="item">
-						{{ item | capitalize }}
-					</option>
-				</select>
+				<span @click="showRegionList = !showRegionList" class="dropdown-toggle"
+					>{{ labelRegion }}
+					<i
+						class="fas"
+						:class="[showRegionList ? 'fa-angle-up' : 'fa-angle-down']"
+					></i
+				></span>
+				<ul class="dropdown" v-show="showRegionList">
+					<li v-if="resetAllRegions" @click="searchByRegion()">
+						Filter By Region
+					</li>
+					<li
+						v-for="(item, index) in regions"
+						:key="index"
+						@click="searchByRegion(item)"
+					>
+						{{ item }}
+					</li>
+				</ul>
 			</div>
 		</div>
 		<div class="blocks">
 			<template v-for="country in countries">
-				<router-link :to="{name:'Country', params: {code: country.alpha3Code}}" class="block" :key="country.numericCode">
-          <country-teaser-view
-            :name="country.name"
-            :flag="country.flag"
-            :population="country.population"
-            :capital="country.capital"
-            :region="country.region"
-          ></country-teaser-view>
-        </router-link>
+				<router-link
+					:to="{ name: 'Country', params: { code: country.alpha3Code } }"
+					class="block"
+					:key="country.numericCode"
+				>
+					<country-details
+						layout="teaser"
+						:name="country.name"
+						:flag="country.flag"
+						:population="country.population"
+						:capital="country.capital"
+						:region="country.region"
+					></country-details>
+				</router-link>
 			</template>
 		</div>
 	</div>
 </template>
 
 <script>
-import CountryTeaserView from "../../components/CountryTeaserView/CountryTeaserView";
+import CountryDetails from "../../components/CountryDetails/CountryDetails.vue";
 export default {
 	name: "Home",
 	components: {
-		"country-teaser-view": CountryTeaserView,
+		"country-details": CountryDetails,
 	},
 	data() {
 		return {
 			search: "",
-			region: "",
+			showRegionList: false,
+			resetAllRegions: false,
+			labelRegion: "Filter by region",
 			countries: {},
 			regions: ["africa", "americas", "asia", "europe", "oceania"],
 		};
@@ -76,17 +92,25 @@ export default {
 				this.getAllCountries();
 			}
 		},
-		searchPerRegion(name) {
-			if (name !== "") {
+		searchByRegion(name) {
+			if (name !== undefined) {
+				this.showRegionList = !this.showRegionList;
+				this.labelRegion = name;
+				this.resetAllRegions = true;
 				this.$http.get("https://restcountries.eu/rest/v2/region/" + name).then(
 					(response) => {
 						this.countries = response.body;
 					},
 					(response) => {
-						console.log(response);
+						if (response.status === 404) {
+							this.countries = {};
+						}
 					}
 				);
 			} else {
+				this.showRegionList = !this.showRegionList;
+				this.labelRegion = "Filter by region";
+				this.resetAllRegions = false;
 				this.getAllCountries();
 			}
 		},
@@ -96,7 +120,9 @@ export default {
 					this.countries = response.body;
 				},
 				(response) => {
-					console.log(response);
+					if (response.status === 404) {
+						this.countries = {};
+					}
 				}
 			);
 		},
