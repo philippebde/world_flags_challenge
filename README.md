@@ -8,5 +8,5 @@
 
 ## Live demo
 
-[Live demo] (http://world-flag-challenge.s3-website-us-east-1.amazonaws.com/)
+[Live demo](http://world-flag-challenge.s3-website-us-east-1.amazonaws.com/)
 
