@@ -1,18 +1,12 @@
-# world_flags_challenge
+# World Flags Challenge
 
 > Flags of the World Challenge
 
-## Build Setup
+## Created by
 
-``` bash
-# install dependencies
-npm install
+> Philippe Mortelette
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Live demo
 
-# build for production with minification
-npm run build
-```
+[Live demo] (http://world-flag-challenge.s3-website-us-east-1.amazonaws.com/)
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
