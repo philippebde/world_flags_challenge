@@ -30,7 +30,7 @@
 								><strong>Top Level Domain:</strong>
 								{{ topLevelDomain.toString() }}</span
 							>
-							<span><strong>currencies:</strong> {{ languagesRender }}</span>
+							<span><strong>Currencies:</strong> {{ languagesRender }}</span>
 						</div>
 						<div class="w-100" v-if="borderCountries.length > 0">
 							<span class="inline align-top"
@@ -42,8 +42,7 @@
 										:to="{ name: 'Country', params: { code: border } }"
 										class="btn"
 										:key="border"
-										>{{ border }}</router-link
-									>
+										>{{ border }}</router-link>
 								</template>
 							</div>
 						</div>
