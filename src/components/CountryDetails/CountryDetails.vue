@@ -60,7 +60,7 @@ export default {
 		layout: { type: String, default: "full" },
 		name: { type: String },
 		nativeName: { type: String },
-		flag: { type: String },
+		flag: { type: String, default: "/src/assets/transparent.png"},
 		population: { type: Number, default: 0 },
 		region: { type: String },
 		subRegion: { type: String },
