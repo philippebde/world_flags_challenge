@@ -37,7 +37,9 @@ export default {
 		};
 	},
 	created() {
-		this.getCountryPerCode(this.$route.params.code);
+    if(this.$route.params.code !== undefined){
+      this.getCountryPerCode(this.$route.params.code);
+    }
 	},
 	methods: {
 		getCountryPerCode(code) {
